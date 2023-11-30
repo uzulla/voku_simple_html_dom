@@ -385,7 +385,11 @@ class HtmlDomParser
 
       $html = self::replaceToPreserveHtmlEntities($html);
 
-      $this->document->loadHTML($html);
+      if ($optionsXml) {
+        $this->document->loadHTML($html, $optionsXml);
+      } else {
+        $this->document->loadHTML($html);
+      }
 
       // remove the "xml-encoding" hack
       if ($xmlHackUsed === true) {
@@ -594,7 +598,7 @@ class HtmlDomParser
     if ($multiDecodeNewHtmlEntity === true) {
       $content = rawurldecode($content);
     } else {
-      $flags = ENT_QUOTES;
+      $flags = ENT_QUOTES | ENT_HTML5;
       $content = rawurldecode(html_entity_decode($content, $flags));
     }
 
