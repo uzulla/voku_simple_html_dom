@@ -385,11 +385,7 @@ class HtmlDomParser
 
       $html = self::replaceToPreserveHtmlEntities($html);
 
-      if ($optionsXml && Bootup::is_php('5.4')) {
-        $this->document->loadHTML($html, $optionsXml);
-      } else {
-        $this->document->loadHTML($html);
-      }
+      $this->document->loadHTML($html);
 
       // remove the "xml-encoding" hack
       if ($xmlHackUsed === true) {
@@ -596,9 +592,9 @@ class HtmlDomParser
     $content = trim($content);
 
     if ($multiDecodeNewHtmlEntity === true) {
-      $content = UTF8::rawurldecode($content);
+      $content = rawurldecode($content);
     } else {
-      $flags = Bootup::is_php('5.4') === true ? ENT_QUOTES | ENT_HTML5 : ENT_QUOTES;
+      $flags = ENT_QUOTES;
       $content = rawurldecode(html_entity_decode($content, $flags));
     }
 
@@ -757,7 +753,7 @@ class HtmlDomParser
     }
 
     try {
-      $html = UTF8::file_get_contents($filePath);
+      $html = file_get_contents($filePath);
     } catch (\Exception $e) {
       throw new RuntimeException("Could not load file $filePath");
     }
