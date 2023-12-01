@@ -1,7 +1,7 @@
 <?php
 
-use voku\helper\HtmlDomParser;
-use voku\helper\SimpleHtmlDom;
+use Voku\Helper\HtmlDomParser;
+use Voku\Helper\SimpleHtmlDom;
 
 /**
  * Class HtmlDomParserTest
@@ -197,16 +197,16 @@ class HtmlDomParserTest extends PHPUnit_Framework_TestCase
     $document = new HtmlDomParser($html);
     $elements = $document->find($selector);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $elements);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $elements);
     self::assertSame($count, count($elements));
 
     foreach ($elements as $element) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $element);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $element);
     }
 
     if ($count !== 0) {
       $element = $document->find($selector, -1);
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $element);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $element);
     }
   }
 
@@ -571,7 +571,7 @@ test3Html.html                      <foo id="foo">bar</foo>
 HTML;
 
     $htmlTmp = HtmlDomParser::str_get_html($str);
-    self::assertInstanceOf('voku\helper\HtmlDomParser', $htmlTmp);
+    self::assertInstanceOf('Voku\Helper\HtmlDomParser', $htmlTmp);
 
     // replace all images with "foobar"
     $tmpArray = array();

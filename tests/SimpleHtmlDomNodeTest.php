@@ -1,6 +1,6 @@
 <?php
 
-use voku\helper\HtmlDomParser;
+use Voku\Helper\HtmlDomParser;
 
 /**
  * Class SimpleHtmlDomNodeTest
@@ -36,11 +36,11 @@ class SimpleHtmlDomNodeTest extends PHPUnit_Framework_TestCase
 
     $elements = $nodeList->find($selector);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $elements);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $elements);
     self::assertCount($count, $elements);
 
     foreach ($elements as $node) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     }
   }
 

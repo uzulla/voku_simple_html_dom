@@ -1,7 +1,7 @@
 <?php
 
-use voku\helper\HtmlDomParser;
-use voku\helper\SimpleHtmlDom;
+use Voku\Helper\HtmlDomParser;
+use Voku\Helper\SimpleHtmlDom;
 
 /**
  * Class SimpleHtmlDomTest
@@ -89,7 +89,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
     $node = $document->getDocument()->documentElement;
     $element = new SimpleHtmlDom($node);
 
-    self::assertInstanceOf('voku\helper\HtmlDomParser', $element->getHtmlDomParser());
+    self::assertInstanceOf('Voku\Helper\HtmlDomParser', $element->getHtmlDomParser());
   }
 
   /**
@@ -106,16 +106,16 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $elements = $element->find($selector);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $elements);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $elements);
     self::assertCount($count, $elements);
 
     foreach ($elements as $node) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     }
 
     $elements = $element($selector);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $elements);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $elements);
   }
 
   /**
@@ -152,7 +152,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $node = $element->getElementById('in');
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('input', $node->tag);
     self::assertSame('number', $node->type);
     self::assertSame('5', $node->value);
@@ -167,7 +167,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $node = $element->getElementByTagName('div');
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('div', $node->tag);
     self::assertSame('top', $node->id);
     self::assertSame('page', $node->class);
@@ -182,11 +182,11 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $elements = $element->getElementsByTagName('div');
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $elements);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $elements);
     self::assertCount(16, $elements);
 
     foreach ($elements as $node) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     }
   }
 
@@ -199,16 +199,16 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $nodes = $element->childNodes();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $nodes);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $nodes);
     self::assertCount(2, $nodes);
 
     foreach ($nodes as $node) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     }
 
     $node = $element->childNodes(1);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
 
     self::assertSame('<p>bar</p>', $node->outertext);
     self::assertSame('bar', $node->plaintext);
@@ -226,16 +226,16 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $nodes = $element->children();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDomNode', $nodes);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDomNode', $nodes);
     self::assertCount(2, $nodes);
 
     foreach ($nodes as $node) {
-      self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+      self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     }
 
     $node = $element->children(1);
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
 
     self::assertSame('<p>bar</p>', $node->outertext);
     self::assertSame('bar', $node->plaintext);
@@ -250,13 +250,13 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $node = $element->firstChild();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('<p>foo</p>', $node->outertext);
     self::assertSame('foo', $node->plaintext);
 
     $node = $element->lastChild();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('<p></p>', $node->outertext);
     self::assertSame('', $node->plaintext);
 
@@ -273,13 +273,13 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $node = $element->lastChild();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('<p>bar</p>', $node->outertext);
     self::assertSame('bar', $node->plaintext);
 
     $node = $element->firstChild();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('<p></p>', $node->outertext);
     self::assertSame('', $node->plaintext);
 
@@ -297,7 +297,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
     $node = $element->firstChild();
     $sibling = $node->nextSibling();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $sibling);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $sibling);
     self::assertSame('<p>bar</p>', $sibling->outertext);
     self::assertSame('bar', $sibling->plaintext);
 
@@ -317,7 +317,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
     $node = $element->lastChild();
     $sibling = $node->previousSibling();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $sibling);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $sibling);
     self::assertSame('<p>foo</p>', $sibling->outertext);
     self::assertSame('foo', $sibling->plaintext);
 
@@ -336,7 +336,7 @@ class SimpleHtmlDomTest extends PHPUnit_Framework_TestCase
 
     $node = $element->parentNode();
 
-    self::assertInstanceOf('voku\helper\SimpleHtmlDom', $node);
+    self::assertInstanceOf('Voku\Helper\SimpleHtmlDom', $node);
     self::assertSame('div', $node->tag);
     /** @noinspection PhpUndefinedFieldInspection */
     self::assertSame('div', $element->parent()->tag);

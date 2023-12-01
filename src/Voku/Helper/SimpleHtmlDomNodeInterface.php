@@ -5,7 +5,7 @@ namespace Voku\Helper;
 /**
  * Interface for SimpleHtmlDomNode
  *
- * @package voku\helper
+ * @package Voku\Helper
  */
 interface SimpleHtmlDomNodeInterface
 {

@@ -7,7 +7,7 @@ use Symfony\Component\CssSelector\CssSelectorConverter;
 /**
  * Class SelectorConverter
  *
- * @package voku\helper
+ * @package Voku\Helper
  */
 class SelectorConverter
 {

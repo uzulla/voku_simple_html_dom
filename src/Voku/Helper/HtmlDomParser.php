@@ -11,7 +11,7 @@ use RuntimeException;
 /**
  * Class HtmlDomParser
  *
- * @package voku\helper
+ * @package Voku\Helper
  *
  * @property-read string outerText <p>Get dom node's outer html (alias for "outerHtml").</p>
  * @property-read string outerHtml <p>Get dom node's outer html.</p>
