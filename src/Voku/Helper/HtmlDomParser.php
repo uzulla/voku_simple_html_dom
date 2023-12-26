@@ -26,9 +26,9 @@ use RuntimeException;
  * @method HtmlDomParser load() load($html) <p>Load HTML from string.</p>
  * @method HtmlDomParser load_file() load_file($html) <p>Load HTML from file.</p>
  *
- * @method static HtmlDomParser file_get_html() file_get_html($html, $libXMLExtraOptions = null) <p>Load HTML from
+ * @method static HtmlDomParser file_get_html($html, $libXMLExtraOptions = null) <p>Load HTML from
  *         file.</p>
- * @method static HtmlDomParser str_get_html() str_get_html($html, $libXMLExtraOptions = null) <p>Load HTML from
+ * @method static HtmlDomParser str_get_html($html, $libXMLExtraOptions = null) <p>Load HTML from
  *         string.</p>
  */
 class HtmlDomParser
